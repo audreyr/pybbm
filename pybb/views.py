@@ -9,7 +9,7 @@ from django.core.exceptions import PermissionDenied, ValidationError
 from django.core.urlresolvers import reverse
 from django.contrib import messages
 from django.db.models import F, Q
-from django.forms.util import ErrorList
+from django.forms.utils import ErrorList
 from django.http import HttpResponseRedirect, HttpResponse, Http404, HttpResponseBadRequest,\
     HttpResponseForbidden
 from django.shortcuts import get_object_or_404, redirect, render
@@ -397,8 +397,8 @@ class PostEditMixin(PybbFormsMixin):
                 if save_poll_answers:
                     pollformset.save()
                 return HttpResponseRedirect(self.get_success_url())
-        return self.render_to_response(self.get_context_data(form=form, 
-                                                             aformset=aformset, 
+        return self.render_to_response(self.get_context_data(form=form,
+                                                             aformset=aformset,
                                                              pollformset=pollformset))
 
 
